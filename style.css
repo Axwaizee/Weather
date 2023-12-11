@@ -170,14 +170,19 @@ footer {
     background: linear-gradient(to top, rgba(255,255,255,1) 30%, rgba(255,255,255,0));
 }
 
-footer > div {
+footer > * {
     user-select: none;
     text-align: center;
-    width: 25%;
     margin-bottom: 15px;
     cursor: pointer;
+    border: none;
+    width: fit-content;
+    height: 3rem;
+    background: transparent;
 }
+
 
 #toggle_btn {
     font-size: xxx-large;
 }
+
