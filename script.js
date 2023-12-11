@@ -117,10 +117,12 @@ async function getWeatherByLocation(position) {
         const data = await response.json();
 
         const currentInfo = document.getElementById('current-info');
+        const tableContainer = document.getElementById('table-container');
+        tableContainer.style.display = 'none';
         currentInfo.style.display = 'block';
         currentInfo.innerHTML = '';
 
-        
+
         const variables = Object.keys(data["current"]);
         const current = Object.values(data["current"]);
         const current_units = Object.values(data["current_units"]);
@@ -287,7 +289,7 @@ function getHourFromISO(isoTimestamp) {
     let period = 'AM';
 
     if (hour === 0) {
-        hour = 12; 
+        hour = 12;
     } else if (hour >= 12) {
         period = 'PM';
         if (hour > 12) {
@@ -300,19 +302,13 @@ function getHourFromISO(isoTimestamp) {
 
 
 function scrollToTime() {
-    // Get the current time.
-const currentTime = new Date();
+    const currentTime = new Date();
 
-// Get the element containing the weather chart.
-const weatherChart = document.getElementById('table-container');
+    const weatherChart = document.getElementById('table-container');
 
-// Calculate the scroll position needed to scroll to the current time data.
-const scrollPosition = weatherChart.offsetWidth * (currentTime.getHours() / 24);
+    const scrollPosition = weatherChart.offsetWidth * (currentTime.getHours() / 24);
 
-// Scroll the weather chart to the calculated scroll position.
-weatherChart.scrollLeft = scrollPosition;
-
-
+    weatherChart.scrollLeft = scrollPosition;
 }
 
 
@@ -321,7 +317,7 @@ function toggleCurrentlyHourly() {
     const current_info = document.getElementById('current-info');
     const table_container = document.getElementById('table-container');
     const toggle_btn = document.getElementById('toggle_btn');
-    
+
     const toggle = {
         'toggle_off': 'toggle_on',
         'toggle_on': 'toggle_off'
@@ -329,8 +325,8 @@ function toggleCurrentlyHourly() {
     toggle_btn.textContent = toggle[toggle_btn.textContent.trim()];
     [current_info.style.display, table_container.style.display] = [table_container.style.display, current_info.style.display];
     scrollToTime();
-    
-    
+
+
 }
 
 const toggle_btn = document.getElementById('toggle_btn');
@@ -349,14 +345,14 @@ currently_btn.addEventListener('click', () => {
     toggle_btn.textContent = 'toggle_off';
     table_container.style.display = 'none';
     current_info.style.display = 'block';
-    
+
 })
 
 hourly_btn.addEventListener('click', () => {
     const current_info = document.getElementById('current-info');
     const table_container = document.getElementById('table-container');
     const toggle_btn = document.getElementById('toggle_btn');
-    
+
     toggle_btn.textContent = 'toggle_on';
     current_info.style.display = 'none';
     table_container.style.display = 'block';
