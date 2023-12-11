@@ -259,7 +259,6 @@ async function createHourlyTable(position) {
 
         }
     }
-    scrollToTime();
 }
 
 function handleLocationError(error) {
@@ -301,30 +300,6 @@ function getHourFromISO(isoTimestamp) {
 }
 
 
-function scrollToTime() {
-    const parsedTime = new Date();
-    let hour = parsedTime.getHours();
-    let period = 'AM';
-
-    if (hour === 0) {
-        hour = 12;
-    } else if (hour >= 12) {
-        period = 'PM';
-        if (hour > 12) {
-            hour -= 12;
-        }
-    }
-
-    let req_id = `${hour}${period}`;
-
-    const a = document.createElement('a');
-    a.href = `#${req_id}`;
-    a.click();
-
-}
-
-
-
 function toggleCurrentlyHourly() {
     const current_info = document.getElementById('current-info');
     const table_container = document.getElementById('table-container');
@@ -336,9 +311,6 @@ function toggleCurrentlyHourly() {
     }
     toggle_btn.textContent = toggle[toggle_btn.textContent.trim()];
     [current_info.style.display, table_container.style.display] = [table_container.style.display, current_info.style.display];
-    scrollToTime();
-
-
 }
 
 const toggle_btn = document.getElementById('toggle_btn');
