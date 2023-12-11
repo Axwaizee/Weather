@@ -39,6 +39,7 @@ body {
     align-items: center;
 
     height: 100vh;
+    background: linear-gradient(to bottom right, rgba(0,0,0,1) 50%, rgba(0,0,0,0.75) 80%, rgba(0,0,0,.5) 100%);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -98,16 +99,11 @@ body {
 }
 
 
-.get-weather-btn-initial {
-
-    background: rgb(8 235 38 / 71%)!important;
-}
-
 
 .table-container {
     max-height: 50vh;
     overflow: auto;
-    width: 83vw;
+    width: 90vw;
     border-radius: 15px;
     scroll-behavior: smooth;
 }
@@ -167,7 +163,6 @@ footer {
     width: 100%;
     justify-content: space-evenly;
     padding-top: 15px;
-    background: linear-gradient(to top, rgba(255,255,255,1) 30%, rgba(255,255,255,0));
 }
 
 footer > * {
@@ -181,8 +176,18 @@ footer > * {
     background: transparent;
 }
 
+#currently_btn {
+    color: rgb(255 255 255);
+}
+
 
 #toggle_btn {
     font-size: xxx-large;
+    background: -webkit-linear-gradient(bottom right,#000, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+#hourly_btn {
+    font-weight: 600;
+}

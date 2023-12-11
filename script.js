@@ -121,6 +121,7 @@ async function getWeatherByLocation(position) {
         tableContainer.style.display = 'none';
         currentInfo.style.display = 'block';
         currentInfo.innerHTML = '';
+        resetToggleBtn();
 
 
         const variables = Object.keys(data["current"]);
@@ -154,41 +155,7 @@ async function getWeatherByLocation(position) {
 
                     k.textContent = `${var_name}: `;
 
-                    if (var_name === 'Day/Night') {
-                        let nightImg = ['night1.jpg', 'night2.jpg'];
-                        let dayImg = ['day1.jpg', 'day2.jpg'];
-                        get_weather_btn.classList.add('button-effect');
-                        const bodyEle = document.getElementById('bodyEle');
-                        let url;
-
-                        if (c === 0) {
-                            try {
-                                const fetchPromise = fetch("https://source.unsplash.com/1080x1080/?night");
-                                fetchPromise.then(response => {
-                                    url = response['url'];
-                                    bodyEle.style.backgroundImage = `url(${url})`;
-                                });
-
-                            } catch (error) {
-                                const night_Img = nightImg[Math.floor(Math.random() * nightImg.length)];
-                                bodyEle.style.backgroundImage = `url(${night_Img})`;
-
-                            }
-                        } else if (c === 1) {
-                            try {
-                                const fetchPromise = fetch("https://source.unsplash.com/1080x1080/?day");
-                                fetchPromise.then(response => {
-                                    url = response['url'];
-                                    bodyEle.style.backgroundImage = `url(${url})`;
-                                });
-
-                            } catch (error) {
-                                const day_Img = dayImg[Math.floor(Math.random() * dayImg.length)];
-                                bodyEle.style.backgroundImage = `url(${day_Img})`;
-                            }
-
-                        }
-                    }
+                    
                     valu.textContent = `${(var_name === 'Day/Night') ? (c === 0 ? 'Night' : (c === 1 ? 'Day' : c)) : c} ${u}`;
                     cb.classList.add(`combo`);
                     k.classList.add(`key`);
@@ -314,6 +281,11 @@ function toggleCurrentlyHourly() {
 }
 
 const toggle_btn = document.getElementById('toggle_btn');
+
+function resetToggleBtn() {
+    toggle_btn.textContent = 'toggle_off';
+}
+
 toggle_btn.addEventListener('click', () => {
     toggleCurrentlyHourly();
 })
