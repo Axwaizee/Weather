@@ -184,6 +184,7 @@ footer > * {
 #toggle_btn {
     font-size: xxx-large;
     background: -webkit-linear-gradient(bottom right,#000, #fff);
+    background-clip: inherit;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
