@@ -300,24 +300,17 @@ function getHourFromISO(isoTimestamp) {
 
 
 function scrollToTime() {
-    const parsedTime = new Date();
-    let hour = parsedTime.getHours();
-    let period = 'AM';
+    // Get the current time.
+const currentTime = new Date();
 
-    if (hour === 0) {
-        hour = 12;
-    } else if (hour >= 12) {
-        period = 'PM';
-        if (hour > 12) {
-            hour -= 12;
-        }
-    }
+// Get the element containing the weather chart.
+const weatherChart = document.getElementById('table-container');
 
-    let req_id = `${hour}${period}`;
+// Calculate the scroll position needed to scroll to the current time data.
+const scrollPosition = weatherChart.offsetWidth * (currentTime.getHours() / 24);
 
-    const a = document.createElement('a');
-    a.href = `#${req_id}`;
-    a.click();
+// Scroll the weather chart to the calculated scroll position.
+weatherChart.scrollLeft = scrollPosition;
 
 
 }
