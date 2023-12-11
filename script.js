@@ -302,13 +302,25 @@ function getHourFromISO(isoTimestamp) {
 
 
 function scrollToTime() {
-    const currentTime = new Date();
+    const parsedTime = new Date();
+    let hour = parsedTime.getHours();
+    let period = 'AM';
 
-    const weatherChart = document.getElementById('table-container');
+    if (hour === 0) {
+        hour = 12;
+    } else if (hour >= 12) {
+        period = 'PM';
+        if (hour > 12) {
+            hour -= 12;
+        }
+    }
 
-    const scrollPosition = weatherChart.offsetWidth * (currentTime.getHours() / 24);
+    let req_id = `${hour}${period}`;
 
-    weatherChart.scrollLeft = scrollPosition;
+    const a = document.createElement('a');
+    a.href = `#${req_id}`;
+    a.click();
+
 }
 
 
