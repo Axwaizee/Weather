@@ -1,5 +1,5 @@
 Click on 'Get Weather for My Location' button
-![image](https://github.com/Axwaizee/Weather/assets/83546692/2cfa40e7-fc4b-4cb5-a0f3-6d90f6680568)
+<img align="center" src="https://github.com/Axwaizee/Weather/assets/83546692/2cfa40e7-fc4b-4cb5-a0f3-6d90f6680568">
 
 Allow location permission
 Locations are not stored or tracked everything is done on browser to fetch weather info from an open source API.
