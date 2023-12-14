@@ -64,6 +64,10 @@ body {
     flex-direction: column;
 }
 
+#weatherInfo > p{
+    color: rgba(255, 255, 255, 0.5);
+}
+
 #current-info {
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.5);
