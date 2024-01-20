@@ -1,3 +1,5 @@
+### You can open the site by clicking [🔗 here](https://axwaizee.github.io/Weather/)
+
 Click on 'Get Weather for My Location' button
 <p align="center">
   <img width="400px" src="https://github.com/Axwaizee/Weather/assets/83546692/1df7d38e-fda2-487c-8dce-9cc68b4a3a4e">
