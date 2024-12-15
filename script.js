@@ -95,9 +95,14 @@ const weatherDescriptions = {
 };
 
 
+async function checkPermission() {
+    if (localStorage.getItem("permission")) getLocation()
+}
+
 async function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getWeatherByLocation, handleLocationError);
+        localStorage.setItem("permission", true);
     } else {
         const weatherInfo = document.getElementById('current-info');
         weatherInfo.innerHTML = '<p>Geolocation is not supported by this browser.</p>';
