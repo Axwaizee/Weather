@@ -1,4 +1,4 @@
-### You can open the site by clicking [🔗 here](https://axwaizee.github.io/Weather/)
+### You can open the site by clicking [🔗 here](https://weather.axwaizee.xyz/)
 
 Click on 'Get Weather for My Location' button
 <p align="center">
