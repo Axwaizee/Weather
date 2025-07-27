@@ -105,10 +105,10 @@ function App() {
 	};
 
 	return (
-		<div className="bg-slate-800 text-slate-200 min-h-screen flex items-center justify-center p-4 font-sans">
+		<div className="bg-[#020617] text-slate-200 min-h-screen flex items-center justify-center font-sans">
 			<div
 				ref={container}
-				className="w-full max-w-4xl bg-slate-900/50 backdrop-blur-sm rounded-2xl shadow-2xl shadow-cyan-500/10 p-6 md:p-10 opacity-0"
+				className="w-full max-w-4xl bg-[#020617] p-4 md:p-10 opacity-0"
 			>
 				{renderContent()}
 			</div>
