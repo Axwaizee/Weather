@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer utilities {
+	.scrollbar-hide {
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
