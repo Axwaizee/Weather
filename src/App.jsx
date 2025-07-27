@@ -103,7 +103,7 @@ function App() {
 	};
 
 	return (
-		<div className="bg-[#020617] text-slate-200 min-h-screen flex items-center justify-center pt-6 font-sans">
+		<div className="bg-[#020617] text-slate-200 min-h-[100dvh] flex items-center justify-center pt-6 font-sans">
 			<div className="w-full max-w-4xl bg-[#020617] p-4 md:p-10">
 				{renderContent()}
 			</div>
