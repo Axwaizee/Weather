@@ -69,15 +69,27 @@ function HourlyForecast({ hourlyData, units }) {
 	};
 
 	const CustomTooltip = ({ active, payload }) => {
-		if (active && payload && payload.length) {
-			return (
-				<div className="bg-slate-700/80 p-2 rounded-md border border-cyan-400/50">
-					<p className="text-white">{`${payload[0].value}${units.temperature_2m}`}</p>
-				</div>
-			);
-		}
-		return null;
-	};
+    if (active && payload && payload.length) {
+      const dataPoint = payload[0].payload;
+
+      return (
+        <div className="bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg border border-cyan-400/30 shadow-lg">
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-sm font-bold text-slate-300">{`${dataPoint.time}:00`}</p>
+
+            <div>
+              {getWeatherIcon(dataPoint.weatherCode)}
+            </div>
+
+            <p className="text-lg font-bold text-white">
+              {`${dataPoint.temp}${units.temperature_2m}`}
+            </p>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
 
 	return (
 		<div className="hourly-forecast mt-10">

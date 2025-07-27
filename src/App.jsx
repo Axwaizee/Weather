@@ -14,8 +14,6 @@ function App() {
 	const [cityName, setCityName] = useState("");
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-
-	// ✨ This ref is now for the content that will fade in
 	const contentRef = useRef(null);
 
 	useEffect(() => {
@@ -48,7 +46,6 @@ function App() {
 		}
 	};
 
-	// ✨ The animation now targets the specific contentRef
 	useGSAP(
 		() => {
 			if (!loading && weatherData) {
@@ -79,11 +76,8 @@ function App() {
 			const pageTitle = `${cityName} Weather - ${currentTemp}°C, ${weatherDescription}`;
 
 			return (
-				// ✨ This wrapper div will get animated
 				<div ref={contentRef}>
 					<title>{pageTitle}</title>
-					{/* We are omitting the other head tags here for brevity */}
-
 					<header className="text-center">
 						<h1 className="text-5xl font-bold text-white">
 							{cityName}
@@ -110,7 +104,6 @@ function App() {
 
 	return (
 		<div className="bg-[#020617] text-slate-200 min-h-screen flex items-center justify-center font-sans">
-			{/* ✨ The 'opacity-0' class has been removed from this container */}
 			<div className="w-full max-w-4xl bg-[#020617] p-4 md:p-10">
 				{renderContent()}
 			</div>
