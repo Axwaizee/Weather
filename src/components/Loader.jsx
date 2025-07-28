@@ -76,7 +76,7 @@ function Loader() {
 		<div className="flex flex-col justify-center items-center h-full gap-4">
 			<div className="relative flex flex-col items-center justify-between h-24">
 				<div
-					className="relative top-0 w-12 h-12 rounded-full animate-spin
+					className="relative top-[-5px] w-12 h-12 rounded-full animate-spin
 border-4 border-solid border-cyan-400 border-t-transparent"
 				></div>
 				<span
