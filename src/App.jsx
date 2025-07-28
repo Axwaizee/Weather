@@ -74,10 +74,46 @@ function App() {
 				weatherDescriptions[weatherData.current.weather_code];
 			const currentTemp = Math.round(weatherData.current.temperature_2m);
 			const pageTitle = `${cityName} Weather - ${currentTemp}°C, ${weatherDescription}`;
+			const pageDescription = `Get the latest weather forecast for ${cityName}, including temperature, humidity, and wind speed. Current condition: ${weatherDescription}.`;
+			const siteUrl = "https://weather.axwaizee.xyz/";
+			const imageUrl = `${siteUrl}social-preview.png`;
+
+			const structuredData = {
+				"@context": "https://schema.org",
+				"@type": "WeatherForecast",
+				name: `Weather Forecast for ${cityName}`,
+				location: {
+					"@type": "Place",
+					name: cityName,
+				},
+				temperature: {
+					"@type": "PropertyValue",
+					value: currentTemp,
+					unitCode: "CEL",
+				},
+				weatherCondition: weatherDescription,
+			};
 
 			return (
 				<div ref={contentRef}>
 					<title>{pageTitle}</title>
+					<meta name="description" content={pageDescription} />
+					<script type="application/ld+json">
+						{JSON.stringify(structuredData)}
+					</script>
+					<meta property="og:title" content={pageTitle} />
+					<meta property="og:description" content={pageDescription} />
+					<meta property="og:type" content="website" />
+					<meta property="og:url" content={siteUrl} />
+					<meta property="og:image" content={imageUrl} />
+					<meta name="twitter:card" content="summary_large_image" />
+					<meta name="twitter:title" content={pageTitle} />
+					<meta
+						name="twitter:description"
+						content={pageDescription}
+					/>
+					<meta name="twitter:image" content={imageUrl} />
+
 					<header className="text-center">
 						<h1 className="text-5xl font-bold text-white">
 							{cityName}
