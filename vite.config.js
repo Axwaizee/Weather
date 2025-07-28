@@ -39,6 +39,12 @@ export default defineConfig({
 					},
 				],
 			},
+			workbox: {
+				navigateFallbackDenylist: [
+					/^\/sitemap\.xml$/,
+					/^\/robots\.txt$/,
+				],
+			},
 		}),
 	],
 });
